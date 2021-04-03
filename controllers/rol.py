@@ -41,26 +41,26 @@ def create_rol():
     nombre=request.json['nombre']
     descripcion=request.json['descripcion']
     #creo un esquema con las variables y lo guardo en una variable new_rol
-    new_rol=rol(id_rol,nombre,descripcion)
+    new_rol=Rol(id_rol,nombre,descripcion)
     db.session.add(new_rol)
     db.session.commit()
     return rol_schema.jsonify(new_rol)
 
 @app.route('/rol',methods=['GET'])
 def get_rol():
-    all_detalles_nombres=rol.query.all()
+    all_detalles_nombres=Rol.query.all()
     result=roles_schema.dump(all_detalles_nombres)
     return jsonify(result)
 
 @app.route('/rol/<id_rol>',methods=['GET'])
 def get_rol_id(id_rol):
-    rol=rol.query.get(id_rol)
+    rol=Rol.query.get(id_rol)
     return rol_schema.jsonify(rol)
 
 #actualizar datos es con el method PUT
 @app.route('/rol/<id_rol>',methods=['PUT'])
 def update_rol(id_rol):
-    rol=rol.query.get(id_rol)
+    rol=Rol.query.get(id_rol)
     nombre=request.json['nombre']
     descripcion=request.json['descripcion']
     #actualizamos con las variables que recibieron los datos
@@ -72,7 +72,7 @@ def update_rol(id_rol):
 #ruta para eliminar con id, y el method DELETE
 @app.route('/rol/<id_rol>',methods=['DELETE'])
 def delete_nombre(id_rol):
-    rol=rol.query.get(id_rol)
+    rol=Rol.query.get(id_rol)
     db.session.delete(rol)
     db.session.commit()
     return rol_schema.jsonify(rol)
