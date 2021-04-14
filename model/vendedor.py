@@ -41,7 +41,7 @@ def create_vendedor():
     return vendedor_schema.jsonify(new_vendedor)
 
 #crearemos una ruta para mostrar datos del vendedor
-app.route('/vendedor',methods=['GET'])
+@app.route('/vendedor',methods=['GET'])
 def get_vendedor():
     all_vendedores=Vendedor.query.all()
     result=vendedores_schema.dump(all_vendedores)
@@ -101,23 +101,10 @@ def edit_vendedor_nombre(nombre):
 
 
 #ruta para eliminar con id, y el method DELETE
-@app.route('/compra/<id_vendedor>',methods=['DELETE'])
+@app.route('/vendedor/<id_vendedor>',methods=['DELETE'])
 def delete_vendedor(id_vendedor):
     vendedor=Vendedor.query.get(id_vendedor)
     db.session.delete(verdedor)
     db.session.commit()
     return vendedor_schema.jsonify(verdedor)
     return jsonify({'message':'datos eliminados'})
-
-@app.route('/compra/<nombre>',methods=['DELETE'])
-def delete_vendedor_nombre(nombre):
-    vendedor=Vendedor.query.get(nombre)
-    db.session.delete(verdedor)
-    db.session.commit()
-    return vendedor_schema.jsonify(verdedor)
-    return jsonify({'message':'datos eliminados'})
-
-#creamos una ruta principal a traves del method GET
-@app.route('/',methods=['GET'])
-def index():
-    return jsonify({'message':'Welcome to my API'})

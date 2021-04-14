@@ -58,8 +58,3 @@ def delete_estado(ID_ESTADO):
     db.session.delete(estado)
     db.session.commit()
     return estado_schema.jsonify(estado)
-
-#creamos una ruta principal a traves del method GET
-@app.route('/',methods=['GET'])
-def index():
-    return jsonify({'message':'Welcome to my API'})

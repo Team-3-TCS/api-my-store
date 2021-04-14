@@ -61,14 +61,8 @@ def update_rol(id_rol):
 
 #ruta para eliminar con id, y el method DELETE
 @app.route('/rol/<id_rol>',methods=['DELETE'])
-def delete_nombre(id_rol):
+def delete_rol(id_rol):
     rol=Rol.query.get(id_rol)
     db.session.delete(rol)
     db.session.commit()
     return rol_schema.jsonify(rol)
-
-#creamos una ruta principal a traves del method GET
-@app.route('/',methods=['GET'])
-#se crea una funcion que envie un mensaje de bienvenida
-def index():
-    return jsonify({'message':'Welcome to my API'})

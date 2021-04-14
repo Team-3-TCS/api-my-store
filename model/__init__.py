@@ -1,0 +1,1 @@
+__all__ = ['calificacion_producto','categoria','cliente','compra','detalle_compra','detalle_delivery_compra','estado','modalidad_entrega','persona','producto','rol', 'usuario','vendedor']

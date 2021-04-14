@@ -1,5 +1,5 @@
 from conexion import *
-class categoria:
+class Categoria(db.Model):
     id_categoria=db.Column(db.Integer,primary_key=True)
     nombre=db.Column(db.Integer)
     descripcion=db.Column(db.Integer)
@@ -30,27 +30,27 @@ def create_categoria():
     db.session.commit()
     return categoria_schema.jsonify(new_categoria)
 
-    #crearemos una ruta para mostrar datos del vendedor
-app.route('/categoria',methods=['GET'])
+    #crearemos una ruta para mostrar datos del categoria
+@app.route('/categoria',methods=['GET'])
 def get_categoria():
     all_categorias=Categoria.query.all()
     result=categorias_schema.dump(all_categorias)
     return jsonify(result)
 
 
-@app.route('/vendedor/<id_categoria>',methods=['GET'])
+@app.route('/categoria/<id_categoria>',methods=['GET'])
 def get_categoria_id(id_categoria):
     categoria=Categoria.query.get(id_categoria)
     return categoria.jsonify(categoria)
     
-@app.route('/vendedor/<nombre>',methods=['GET'])
+@app.route('/categoria/<nombre>',methods=['GET'])
 def get_categoria_nombre(nombre):
     categoria=Categoria.query.get(nombre)
     return categoria_schema.jsonify(categoria)
 
 
-#actualizar datos del vendedor
-@app.route('/vendedor/<id_categoria>',methods=['PUT'])
+#actualizar datos del categoria
+@app.route('/categoria/<id_categoria>',methods=['PUT'])
 def edit_categoria(id_categoria):
     categoria=Categoria.query.get(id_categoria)
     nombre=request.json['nombre']
@@ -61,7 +61,7 @@ def edit_categoria(id_categoria):
     return categoria_schema.jsonify(categoria)
     return jsonify({'message':'Datos modificados'})
 
-@app.route('/vendedor/<nombre>',methods=['PUT'])
+@app.route('/categoria/<nombre>',methods=['PUT'])
 def edit_categoria_nom(nombre):
     categoria=Categoria.query.get(nombre)
     nombre=request.json['nombre']
@@ -73,7 +73,7 @@ def edit_categoria_nom(nombre):
     return jsonify({'message':'Datos modificados'})
 
 #ruta para eliminar con id, y el method DELETE
-@app.route('/compra/<id_categoria>',methods=['DELETE'])
+@app.route('/categoria/<id_categoria>',methods=['DELETE'])
 def delete_categoria(id_categoria):
     categoria=Categoria.query.get(id_categoria)
     db.session.delete(categoria)
@@ -81,16 +81,11 @@ def delete_categoria(id_categoria):
     return categoria_schema.jsonify(categoria)
     return jsonify({'message':'datos eliminados'})
 
-@app.route('/compra/<nombre>',methods=['DELETE'])
+@app.route('/categoria/<nombre>',methods=['DELETE'])
 def delete_categoria_nom(nombre):
     categoria=Categoria.query.get(nombre)
     db.session.delete(categoria)
     db.session.commit()
     return categoria_schema.jsonify(categoria)
     return jsonify({'message':'datos eliminados'})
-
-#creamos una ruta principal a traves del method GET
-@app.route('/',methods=['GET'])
-def index():
-    return jsonify({'message':'Welcome to my API'})
 

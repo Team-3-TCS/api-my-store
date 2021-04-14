@@ -88,9 +88,3 @@ def delete_compra(id_compra):
     db.session.delete(compra)
     db.session.commit()
     return compra_schema.jsonify(compra)
-
-#creamos una ruta principal a traves del method GET
-@app.route('/',methods=['GET'])
-def index():
-    return jsonify({'message':'Welcome to my API'})
-
