@@ -71,14 +71,8 @@ def update_calificacion_producto(id_calificacion):
 
 #ruta para eliminar con id, y el method DELETE
 @app.route('/calificacion_producto/<id_calificacion>',methods=['DELETE'])
-def delete_compra(id_calificacion):
+def delete_calificacion_producto(id_calificacion):
     calificacion_producto=Calificacion_producto.query.get(id_calificacion)
     db.session.delete(calificacion_producto)
     db.session.commit()
     return calificacion_producto_schema.jsonify(calificacion_producto)
-
-#creamos una ruta principal a traves del method GET
-@app.route('/',methods=['GET'])
-#se crea una funcion que envie un mensaje de bienvenida
-def index():
-    return jsonify({'message':'Welcome to my API'})

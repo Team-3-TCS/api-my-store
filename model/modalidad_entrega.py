@@ -58,8 +58,3 @@ def delete_modalidad_entrega(id_modalidad_entrega):
     db.session.delete(modalidad_entrega)
     db.session.commit()
     return modalidad_entrega_schema.jsonify(modalidad_entrega)
-
-#creamos una ruta principal a traves del method GET
-@app.route('/',methods=['GET'])
-def index():
-    return jsonify({'message':'Welcome to my API'})

@@ -48,8 +48,3 @@ def delete_cliente(id_cliente):
     db.session.delete(cliente)
     db.session.commit()
     return cliente_schema.jsonify(cliente)
-
-#creamos una ruta principal a traves del method GET
-@app.route('/',methods=['GET'])
-def index():
-    return jsonify({'message':'Welcome to my API'})

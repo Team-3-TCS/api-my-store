@@ -76,14 +76,8 @@ def update_detalle_delivery_compra(id_detalle_delivery):
 
 #ruta para eliminar con id, y el method DELETE
 @app.route('/detalle_delivery_compra/<id_detalle_delivery>',methods=['DELETE'])
-def delete_id_compra(id_detalle_delivery):
+def delete_detalle_delivery_compra(id_detalle_delivery):
     detalle_delivery_compra=Detalle_delivery_compra.query.get(id_detalle_delivery)
     db.session.delete(detalle_delivery_compra)
     db.session.commit()
     return detalle_delivery_compra_schema.jsonify(detalle_delivery_compra)
-
-#creamos una ruta principal a traves del method GET
-@app.route('/',methods=['GET'])
-#se crea una funcion que envie un mensaje de bienvenida
-def index():
-    return jsonify({'message':'Welcome to my API'})
