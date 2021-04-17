@@ -9,8 +9,6 @@ class Estado(db.Model):
         self.NOMBRE=NOMBRE
         self.DESCRIPCION=DESCRIPCION
 
-db.create_all()
-
 class Estado_Schema(ma.Schema):
     class Meta:
         fields=('ID_ESTADO','NOMBRE','DESCRIPCION')
