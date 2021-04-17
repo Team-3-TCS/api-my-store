@@ -4,8 +4,8 @@ class Producto(db.Model):
     id_producto=db.Column(db.Integer,primary_key=True)
     id_categoria=db.Column(db.Integer)
     id_vendedor=db.Column(db.Integer)
-    nombre=db.Column(db.Integer)
-    descripcion=db.Column(db.Integer)
+    nombre=db.Column(db.String(100))
+    descripcion=db.Column(db.String(300))
     precio=db.Column(db.Float)
     imagen=db.Column(db.String(100))
     stock=db.Column(db.Integer)
@@ -27,7 +27,7 @@ class Producto(db.Model):
         self.fecha_modificacion=fecha_modificacion
 
 
-db.create_all()
+#db.create_all()
 
 class Producto_Schema(ma.Schema):
     class Meta:

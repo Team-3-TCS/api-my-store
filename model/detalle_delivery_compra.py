@@ -5,10 +5,10 @@ from conexion import *
 class Detalle_delivery_compra(db.Model):
     id_detalle_delivery=db.Column(db.Integer,primary_key=True)
     id_compra=db.Column(db.Integer)
-    id_usuario=db.Column(db.String(50))
-    direccion=db.Column(db.String(50))
-    referencia=db.Column(db.String(50))
-    numero_contacto=db.Column(db.String(50))
+    id_usuario=db.Column(db.Integer)
+    direccion=db.Column(db.String(100))
+    referencia=db.Column(db.String(100))
+    numero_contacto=db.Column(db.String(45))
     
     def __init__(self,id_detalle_delivery,id_compra,id_usuario,direccion,referencia,numero_contacto):
         self.id_detalle_delivery=id_detalle_delivery
@@ -19,7 +19,7 @@ class Detalle_delivery_compra(db.Model):
         self.numero_contacto=numero_contacto
 
 #lee toda la clase y apartir de eso crea tablas
-db.create_all()
+#db.create_all()
 
 #creamos una clase esquema, y importamos desde ma y desde ma importamos esquema
 class Detalle_delivery_compra_Schema(ma.Schema):

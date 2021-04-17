@@ -17,7 +17,7 @@ class Calificacion_producto(db.Model):
         self.comentario=comentario
 
 #lee toda la clase y apartir de eso crea tablas
-db.create_all()
+#db.create_all()
 
 #creamos una clase esquema, y importamos desde ma y desde ma importamos esquema
 class Calificacion_producto_Schema(ma.Schema):
