@@ -10,7 +10,6 @@ class Modalidad_entrega(db.Model):
         self.nombre=nombre
         self.descripcion=descripcion
 
-db.create_all()
 class Modalidad_entregaSchema(ma.Schema):
     class Meta:
         fields=('Modalidad_Entrega','nombre','descripcion')

@@ -15,8 +15,6 @@ class Detalle_compra(db.Model):
         self.precio=precio
         self.descuento=descuento
 
-db.create_all()
-
 class Detalle_compra_Schema(ma.Schema):
     class Meta:
         fields=('id_detalle_compra','compra','producto','cantidad','precio','descuento')

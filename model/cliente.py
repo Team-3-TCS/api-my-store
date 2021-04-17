@@ -5,8 +5,6 @@ class Cliente(db.Model):
     def __init__(self,id_cliente):
         self.id_cliente=id_cliente
 
-db.create_all()
-
 class Cliente_Schema(ma.Schema):
     class Meta:
         fields=('id_cliente','')

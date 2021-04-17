@@ -21,8 +21,6 @@ class Compra(db.Model):
         self.descuento=descuento
         self.id_estado=id_estado
 
-db.create_all()
-
 class Compra_Schema(ma.Schema):
     class Meta:
         fields=('id_compra','id_cliente','id_vendedor','fecha','id_Estado_compra','id_Estado_pago','Modalidad_entrega','descuento','id_estado')
