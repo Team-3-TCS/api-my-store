@@ -1,16 +1,14 @@
 from conexion import *
 class Categoria(db.Model):
     id_categoria=db.Column(db.Integer,primary_key=True)
-    nombre=db.Column(db.Integer)
-    descripcion=db.Column(db.Integer)
+    nombre=db.Column(db.String(50))
+    descripcion=db.Column(db.String(200))
 
 
     def __init__(self,id_categoria,nombre,descripcion):
         self.id_categoria=id_categoria
         self.nombre=nombre
         self.descripcion=descripcion
-
-db.create_all()
 
 class   Categoria_Schema(ma.Schema):
     class Meta:
@@ -25,7 +23,7 @@ def create_categoria():
     id_categoria=request.json['id_categoria']
     nombre=request.json['nombre']
     descripcion=request.json['descripcion']
-    new_categoria=Vendedor(id_categoria,nombre,descripcion)
+    new_categoria=Categoria(id_categoria,nombre,descripcion)
     db.session.add(new_categoria)
     db.session.commit()
     return categoria_schema.jsonify(new_categoria)
@@ -41,33 +39,16 @@ def get_categoria():
 @app.route('/categoria/<id_categoria>',methods=['GET'])
 def get_categoria_id(id_categoria):
     categoria=Categoria.query.get(id_categoria)
-    return categoria.jsonify(categoria)
-    
-@app.route('/categoria/<nombre>',methods=['GET'])
-def get_categoria_nombre(nombre):
-    categoria=Categoria.query.get(nombre)
     return categoria_schema.jsonify(categoria)
-
-
+    
 #actualizar datos del categoria
 @app.route('/categoria/<id_categoria>',methods=['PUT'])
-def edit_categoria(id_categoria):
+def update_categoria(id_categoria):
     categoria=Categoria.query.get(id_categoria)
     nombre=request.json['nombre']
     descripcion=request.json['descripcion']
     categoria.nombre=nombre
-    categoria.descripcion=descripcion 
-    db.session.commit()
-    return categoria_schema.jsonify(categoria)
-    return jsonify({'message':'Datos modificados'})
-
-@app.route('/categoria/<nombre>',methods=['PUT'])
-def edit_categoria_nom(nombre):
-    categoria=Categoria.query.get(nombre)
-    nombre=request.json['nombre']
-    descripcion=request.json['descripcion']
-    categoria.nombre=nombre
-    categoria.descripcion=descripcion 
+    categoria.descripcion=descripcion
     db.session.commit()
     return categoria_schema.jsonify(categoria)
     return jsonify({'message':'Datos modificados'})
@@ -80,12 +61,3 @@ def delete_categoria(id_categoria):
     db.session.commit()
     return categoria_schema.jsonify(categoria)
     return jsonify({'message':'datos eliminados'})
-
-@app.route('/categoria/<nombre>',methods=['DELETE'])
-def delete_categoria_nom(nombre):
-    categoria=Categoria.query.get(nombre)
-    db.session.delete(categoria)
-    db.session.commit()
-    return categoria_schema.jsonify(categoria)
-    return jsonify({'message':'datos eliminados'})
-

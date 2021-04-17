@@ -2,11 +2,11 @@ from conexion import *
 
 class Vendedor(db.Model):
     id_vendedor=db.Column(db.Integer,primary_key=True)
-    paterno=db.Column(db.Integer)
-    materno=db.Column(db.Integer)
-    nombre=db.Column(db.Integer)
-    telefono=db.Column(db.Integer)
-    dni=db.Column(db.Integer)
+    paterno=db.Column(db.String(50))
+    materno=db.Column(db.String(50))
+    nombre=db.Column(db.String(50))
+    telefono=db.Column(db.String(10))
+    dni=db.Column(db.String(10))
     
 
     def __init__(self,id_vendedor,paterno,materno,nombre,telefono,dni):
@@ -16,8 +16,6 @@ class Vendedor(db.Model):
         self.nombre=nombre
         self.telefono=telefono
         self.dni=dni
-
-db.create_all()
 
 class   Vendedor_Schema(ma.Schema):
     class Meta:
@@ -47,26 +45,14 @@ def get_vendedor():
     result=vendedores_schema.dump(all_vendedores)
     return jsonify(result)
 
-
 @app.route('/vendedor/<id_vendedor>',methods=['GET'])
 def get_vendedor_id(id_vendedor):
     vendedor=Vendedor.query.get(id_vendedor)
     return vendedor_schema.jsonify(vendedor)
 
-@app.route('/vendedor/<dni>',methods=['GET'])
-def get_vendedor_dni(dni):
-    vendedor=Vendedor.query.get(dni)
-    return vendedor_schema.jsonify(vendedor)
-
-@app.route('/vendedor/<nombre>',methods=['GET'])
-def get_vendedor_nombre(nombre):
-    vendedor=Vendedor.query.get(nombre)
-    return vendedor_schema.jsonify(vendedor)
-
-
 #actualizar datos del vendedor
 @app.route('/vendedor/<id_vendedor>',methods=['PUT'])
-def edit_vendedor(id_vendedor):
+def update_vendedor(id_vendedor):
     vendedor=Vendedor.query.get(id_vendedor)
     paterno=request.json['paterno']
     materno=request.json['materno']
@@ -81,30 +67,12 @@ def edit_vendedor(id_vendedor):
     db.session.commit()
     return vendedor_schema.jsonify(vendedor)
     return jsonify({'message':'Datos modificados'})
-
-@app.route('/vendedor/<nombre>',methods=['PUT'])
-def edit_vendedor_nombre(nombre):
-    vendedor=Vendedor.query.get(nombre)
-    paterno=request.json['paterno']
-    materno=request.json['materno']
-    nombre=request.json['nombre']
-    telefono=request.json['telefono']
-    dni=request.json['dni']
-    vendedor.paterno=paterno
-    vendedor.materno=materno 
-    vendedor.nombre=nombre
-    vendedor.telefono=telefono
-    vendedor.dni=dni
-    db.session.commit()
-    return vendedor_schema.jsonify(vendedor)
-    return jsonify({'message':'Datos modificados'})
-
 
 #ruta para eliminar con id, y el method DELETE
 @app.route('/vendedor/<id_vendedor>',methods=['DELETE'])
 def delete_vendedor(id_vendedor):
     vendedor=Vendedor.query.get(id_vendedor)
-    db.session.delete(verdedor)
+    db.session.delete(vendedor)
     db.session.commit()
-    return vendedor_schema.jsonify(verdedor)
+    return vendedor_schema.jsonify(vendedor)
     return jsonify({'message':'datos eliminados'})
