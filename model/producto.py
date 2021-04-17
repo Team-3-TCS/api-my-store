@@ -4,8 +4,8 @@ class Producto(db.Model):
     id_producto=db.Column(db.Integer,primary_key=True)
     id_categoria=db.Column(db.Integer)
     id_vendedor=db.Column(db.Integer)
-    nombre=db.Column(db.Integer)
-    descripcion=db.Column(db.Integer)
+    nombre=db.Column(db.String(100))
+    descripcion=db.Column(db.String(300))
     precio=db.Column(db.Float)
     imagen=db.Column(db.String(100))
     stock=db.Column(db.Integer)
@@ -27,11 +27,11 @@ class Producto(db.Model):
         self.fecha_modificacion=fecha_modificacion
 
 
-db.create_all()
+#db.create_all()
 
 class Producto_Schema(ma.Schema):
     class Meta:
-        fields=('id_producto','id_categoria','id_vendedor,nombre','descripcion','precio','imagen','stock','estado_activacion','fecha_adicion','fecha_modificacion')
+        fields=('id_producto','id_categoria','id_vendedor','nombre','descripcion','precio','imagen','stock','estado_activacion','fecha_adicion','fecha_modificacion')
 
 producto_schema=Producto_Schema()
 productos_schema=Producto_Schema(many=True)
@@ -78,7 +78,7 @@ def get_producto_nombre(nombre):
 @app.route('/producto/<nombre>',methods=['PUT'])
 def update_producto(id_producto):
     producto=Compra.query.get(nombre)
-    id_categoria=request.json['nombre']
+    id_categoria=request.json['id_categoria']
     id_vendedor=request.json['id_vendedor']
     nombre=request.json['nombre']
     descripcion=request.json['descripcion']

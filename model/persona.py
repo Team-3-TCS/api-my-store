@@ -8,7 +8,7 @@ class Persona(db.Model):
     nombre=db.Column(db.String(50))
     apellido_paterno=db.Column(db.String(50))
     apellido_materno=db.Column(db.String(50))
-    correo=db.Column(db.String(50))
+    correo=db.Column(db.String(100))
     celular=db.Column(db.Integer)
     genero=db.Column(db.Integer)
     
@@ -23,7 +23,7 @@ class Persona(db.Model):
         self.genero=genero
 
 #lee toda la clase y apartir de eso crea tablas
-db.create_all()
+#db.create_all()
 
 #creamos una clase esquema, y importamos desde ma y desde ma importamos esquema
 class Persona_Schema(ma.Schema):

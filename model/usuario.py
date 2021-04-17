@@ -7,7 +7,7 @@ class Usuario(db.Model):
     rol=db.Column(db.Integer)
     contrasenia=db.Column(db.String(50))
     nombre_usuario=db.Column(db.String(50))
-    id_estado_actividad=db.Column(db.Float)
+    id_estado_actividad=db.Column(db.Integer)
     
     def __init__(self,id_usuario,rol,contrasenia,nombre_usuario,id_estado_actividad):
         self.id_usuario=id_usuario
@@ -17,7 +17,7 @@ class Usuario(db.Model):
         self.id_estado_actividad=id_estado_actividad
 
 #lee toda la clase y apartir de eso crea tablas
-db.create_all()
+#db.create_all()
 
 #creamos una clase esquema, y importamos desde ma y desde ma importamos esquema
 class Usuario_Schema(ma.Schema):

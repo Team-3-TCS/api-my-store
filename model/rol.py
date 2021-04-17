@@ -5,7 +5,7 @@ from conexion import *
 class Rol(db.Model):
     id_rol=db.Column(db.Integer,primary_key=True)
     nombre=db.Column(db.String(50))
-    descripcion=db.Column(db.String(50))
+    descripcion=db.Column(db.String(200))
     
     def __init__(self,id_rol,nombre,descripcion):
         self.id_rol=id_rol
@@ -13,7 +13,7 @@ class Rol(db.Model):
         self.descripcion=descripcion
 
 #lee toda la clase y apartir de eso crea tablas
-db.create_all()
+#db.create_all()
 
 #creamos una clase esquema, y importamos desde ma y desde ma importamos esquema
 class Rol_Schema(ma.Schema):
