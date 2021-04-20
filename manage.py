@@ -7,6 +7,10 @@ from flask_script import Manager
 from app import blueprint
 from app.main import create_app, db
 from app.main.model import cliente
+from app.main.model import calificacion_producto
+from app.main.model import categoria
+from app.main.model import compra
+from app.main.model import detalle_compra
 
 app = create_app(os.getenv('MYSTORE_ENV') or 'dev')
 app.register_blueprint(blueprint)
