@@ -1,15 +1,13 @@
 <p align="center">
 <h2 align="center">MyStore Api</h2>
 <br>
-  <a href="" rel="noopener">
- <img width=200px src="https://i.ibb.co/3TYg0qv/mystore.jpg" alt="Aurora Store"></a>
 </p>
 
 <div align="center">
-
+<img width=200px src="https://i.ibb.co/3TYg0qv/mystore.jpg" alt="Aurora Store"></a>
 </div>
 
-------------
+----
 
 ## Primeros pasos
 
