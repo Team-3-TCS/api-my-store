@@ -1,9 +1,10 @@
 from .. import db
 
+
 class Cliente(db.Model):
     __tablename__ = "cliente"
-    id_cliente = db.Column(db.Integer, primary_key=True)
+    id_cliente = db.Column(db.Integer, primary_key=True, autoincrement=True)
 
 
 def __repr__(self):
-    return "<Cliente '{}'>".format(self.username)
+    return "<Cliente '{}'>".format(self.id_cliente)

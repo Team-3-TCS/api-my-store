@@ -3,15 +3,21 @@ from app.main.model.cliente import Cliente
 
 
 def create_cliente(data):
-
-    new_cliente = Cliente(id_cliente=data['id_cliente'])
-    save_changes(new_cliente)
-    response_object = {
-        'status': 'success',
-        'message': 'Successfully registered.'
-    }
-    return response_object, 201
-    # return cliente_schema.jsonify(new_cliente)
+    cliente = Cliente.query.filter_by(id_cliente=data['id_cliente'])
+    if not cliente:
+        new_cliente = Cliente(id_cliente=data['id_cliente'])
+        save_changes(new_cliente)
+        response_object = {
+            'status': 'success',
+            'message': 'Successfully registered.'
+        }
+        return response_object, 201
+    else:
+        response_object = {
+            'status': 'fail',
+            'message': 'Cliente already exists.',
+        }
+        return response_object, 409
 
 
 def get_clientes():

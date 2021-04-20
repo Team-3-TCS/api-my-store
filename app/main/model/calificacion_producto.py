@@ -2,7 +2,9 @@ from .. import db
 
 
 class Calificacion_producto(db.Model):
-    id_calificacion = db.Column(db.Integer, primary_key=True)
+    __tablename__ = "calificacion_producto"
+    id_calificacion = db.Column(
+        db.Integer, primary_key=True, autoincrement=True)
     id_producto = db.Column(db.Integer)
     id_cliente = db.Column(db.Integer)
     puntuacion = db.Column(db.Integer)
@@ -10,4 +12,4 @@ class Calificacion_producto(db.Model):
 
 
 def __repr__(self):
-    return "<Calificacion_producto '{}'>".format(self.username)
+    return "<Calificacion_producto '{}'>".format(self.id_producto)
