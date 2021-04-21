@@ -10,7 +10,6 @@ productos_schema=Producto_Schema(many=True)
 
 def create_producto(data):
     new_producto = Producto(
-            id_producto=data['id_producto'],
             id_categoria=data['id_categoria'],
             id_vendedor=data['id_vendedor'],
             nombre=data['nombre'],

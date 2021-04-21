@@ -87,7 +87,7 @@ class Modalidad_entregaDTO:
     api = Namespace(
         'modalidad_entrega', description='operaciones relacionadas con la modalidad_entrega')
     modalidad_entrega = api.model('modalidad_entrega', {
-        'Modalidad_Entrega': fields.Integer(required=False, description='id de la modalidad de entrega'),
+        'id_modalidad_entrega': fields.Integer(required=False, description='id de la modalidad de entrega'),
         'nombre': fields.String(required=True, description='nombre'),
         'descripcion': fields.String(required=True, description='descripcion'),
     })

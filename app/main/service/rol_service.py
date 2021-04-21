@@ -10,7 +10,6 @@ roles_schema=Rol_Schema(many=True)
 
 def create_rol(data):
     new_rol = Rol(
-            id_rol=data['id_rol'],
             nombre=data['nombre'],
             descripcion=data['descripcion']
         )

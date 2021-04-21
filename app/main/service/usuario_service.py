@@ -10,7 +10,6 @@ usuarios_schema=Usuario_Schema(many=True)
 
 def create_usuario(data):
     new_usuario = Usuario(
-            id_usuario=data['id_usuario'],
             rol=data['rol'],
             contrasenia=data['contrasenia'],
             nombre_usuario=data['nombre_usuario'],
