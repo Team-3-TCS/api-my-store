@@ -10,7 +10,6 @@ estados_schema=Estado_Schema(many=True)
 
 def create_estado(data):
     new_estado = Estado(
-            ID_ESTADO=data['ID_ESTADO'],
             NOMBRE=data['NOMBRE'],
             DESCRIPCION=data['DESCRIPCION']
         )

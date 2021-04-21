@@ -10,7 +10,6 @@ vendedores_schema=Vendedor_Schema(many=True)
 
 def create_vendedor(data):
     new_vendedor = Vendedor(
-            id_vendedor=data['id_vendedor'],
             paterno=data['paterno'],
             materno=data['materno'],
             nombre=data['nombre'],

@@ -10,7 +10,6 @@ personas_schema=Persona_Schema(many=True)
 
 def create_persona(data):
     new_persona = Persona(
-            id_persona=data['id_persona'],
             usuario=data['usuario'],
             nombre=data['nombre'],
             apellido_paterno=data['apellido_paterno'],

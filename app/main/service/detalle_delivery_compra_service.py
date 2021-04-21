@@ -12,7 +12,6 @@ detalle_delivery_compras_schema=Detalle_delivery_compra_Schema(many=True)
 
 def create_detalle_delivery_compra(data):
     new_detalle_delivery_compra = Detalle_delivery_compra(
-            id_detalle_delivery=data['id_detalle_delivery'],
             id_compra=data['id_compra'],
             id_usuario=data['id_usuario'],
             direccion=data['direccion'],

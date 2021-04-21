@@ -1,7 +1,7 @@
 from .. import db
 
 class Modalidad_entrega(db.Model):
-    Modalidad_Entrega=db.Column(db.Integer,primary_key=True)
+    id_modalidad_entrega=db.Column(db.Integer,primary_key=True)
     nombre=db.Column(db.String(50))
     descripcion=db.Column(db.String(200))
     
