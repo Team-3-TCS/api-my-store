@@ -8,4 +8,4 @@ class Rol(db.Model):
     descripcion=db.Column(db.String(200))
     
 def __repr__(self):
-    return "<Rol'{}'>".format(self.username)
+    return "<Rol'{}'>".format(self.id_rol)

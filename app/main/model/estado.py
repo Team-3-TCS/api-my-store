@@ -6,4 +6,4 @@ class Estado(db.Model):
     DESCRIPCION=db.Column(db.String(200))
 
 def __repr__(self):
-    return "<Estado'{}'>".format(self.username)
+    return "<Estado'{}'>".format(self.ID_ESTADO)

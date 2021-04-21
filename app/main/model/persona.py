@@ -13,7 +13,7 @@ class Persona(db.Model):
     genero=db.Column(db.Integer)
     
 def __repr__(self):
-    return "<Persona'{}'>".format(self.username)
+    return "<Persona'{}'>".format(self.id_persona)
 
 
 

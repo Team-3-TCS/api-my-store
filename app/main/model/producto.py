@@ -14,4 +14,4 @@ class Producto(db.Model):
     fecha_modificacion=db.Column(db.DateTime)
 
 def __repr__(self):
-    return "<Producto'{}'>".format(self.username)
+    return "<Producto'{}'>".format(self.id_producto)

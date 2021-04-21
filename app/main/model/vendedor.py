@@ -9,5 +9,5 @@ class Vendedor(db.Model):
     dni=db.Column(db.String(10))
     
 def __repr__(self):
-    return "<Vendedor '{}'>".format(self.username)
+    return "<Vendedor '{}'>".format(self.id_vendedor)
 

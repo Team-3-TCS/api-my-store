@@ -8,7 +8,7 @@ class Usuario(db.Model):
     id_estado_actividad=db.Column(db.Integer)
     
 def __repr__(self):
-    return "<Usuario '{}'>".format(self.username)
+    return "<Usuario '{}'>".format(self.id_usuario)
 
 
 

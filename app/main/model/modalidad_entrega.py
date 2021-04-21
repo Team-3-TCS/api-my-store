@@ -6,7 +6,7 @@ class Modalidad_entrega(db.Model):
     descripcion=db.Column(db.String(200))
     
 def __repr__(self):
-    return "<Modalidad_entrega'{}'>".format(self.username)
+    return "<Modalidad_entrega'{}'>".format(self.Modalidad_Entrega)
 
 
 
