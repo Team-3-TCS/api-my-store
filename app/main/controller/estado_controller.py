@@ -11,7 +11,7 @@ _estado = EstadoDTO.estado
 @api.route('/')
 class EstadoList(Resource):
     @api.doc('list_of_registered_estados')
-    @api.marshal_list_with(_estado, envelope='data')
+    @api.marshal_list_with(_estado)
     def get(self):
         """List all registered estados"""
         return get_estado()

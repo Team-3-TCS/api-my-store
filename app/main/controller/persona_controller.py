@@ -11,7 +11,7 @@ _persona = PersonaDTO.persona
 @api.route('/')
 class PersonaList(Resource):
     @api.doc('list_of_registered_personas')
-    @api.marshal_list_with(_persona, envelope='data')
+    @api.marshal_list_with(_persona)
     def get(self):
         """List all registered personas"""
         return get_persona()

@@ -11,7 +11,7 @@ _producto = ProductoDTO.producto
 @api.route('/')
 class ProductoList(Resource):
     @api.doc('list_of_registered_productos')
-    @api.marshal_list_with(_producto, envelope='data')
+    @api.marshal_list_with(_producto)
     def get(self):
         """List all registered productos"""
         return get_producto()

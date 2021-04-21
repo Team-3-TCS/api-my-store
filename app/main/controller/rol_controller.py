@@ -11,7 +11,7 @@ _rol = RolDTO.rol
 @api.route('/')
 class RolList(Resource):
     @api.doc('list_of_registered_rols')
-    @api.marshal_list_with(_rol, envelope='data')
+    @api.marshal_list_with(_rol)
     def get(self):
         """List all registered rols"""
         return get_rol()

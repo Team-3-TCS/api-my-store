@@ -11,7 +11,7 @@ _vendedor = VendedorDTO.vendedor
 @api.route('/')
 class VendedorList(Resource):
     @api.doc('list_of_registered_vendedors')
-    @api.marshal_list_with(_vendedor, envelope='data')
+    @api.marshal_list_with(_vendedor)
     def get(self):
         """List all registered vendedors"""
         return get_vendedor()

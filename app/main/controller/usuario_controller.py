@@ -11,7 +11,7 @@ _usuario = UsuarioDTO.usuario
 @api.route('/')
 class UsuarioList(Resource):
     @api.doc('list_of_registered_usuarios')
-    @api.marshal_list_with(_usuario, envelope='data')
+    @api.marshal_list_with(_usuario)
     def get(self):
         """List all registered usuarios"""
         return get_usuario()
