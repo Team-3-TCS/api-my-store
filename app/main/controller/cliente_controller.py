@@ -11,7 +11,7 @@ _cliente = ClienteDTO.cliente
 @api.route('/')
 class ClienteList(Resource):
     @api.doc('list_of_registered_clientes')
-    @api.marshal_list_with(_cliente, envelope='data')
+    @api.marshal_list_with(_cliente)
     def get(self):
         """List all registered clientes"""
         return get_clientes()

@@ -4,28 +4,18 @@ from app.main.model.calificacion_producto import Calificacion_producto
 
 def create_calificacion_producto(data):
 
-    calificacion_producto = Calificacion_producto.query.filter_by(
-        id_calificacion=data['id_calificacion'])
-    if not calificacion_producto:
-        new_calificacion_producto = Calificacion_producto(
-            id_calificacion=data['id_calificacion'],
-            id_producto=data['id_producto'],
-            id_calificacion_producto=data['id_calificacion_producto'],
-            puntuacion=data['puntuacion'],
-            comentario=data['comentario']
-        )
-        save_changes(new_calificacion_producto)
-        response_object = {
-            'status': 'success',
-            'message': 'Successfully registered.'
-        }
-        return response_object, 201
-    else:
-        response_object = {
-            'status': 'fail',
-            'message': 'calificacion producto already exists.',
-        }
-        return response_object, 409
+    new_calificacion_producto = Calificacion_producto(
+        id_producto=data['id_producto'],
+        id_cliente=data['id_cliente'],
+        puntuacion=data['puntuacion'],
+        comentario=data['comentario']
+    )
+    save_changes(new_calificacion_producto)
+    response_object = {
+        'status': 'success',
+        'message': 'Successfully registered.'
+    }
+    return response_object, 201
 
 
 def get_calificacion_productos():
@@ -37,10 +27,11 @@ def get_calificacion_producto_id(id_calificacion):
 
 
 def update_calificacion_producto(id_calificacion, put_calificacion_producto):
-    calificacion_producto = Calificacion_producto.query.filter(
-        Calificacion_producto.id_calificacion == str(id_calificacion)).first()
-    calificacion_producto = put_calificacion_producto
-    db.session.update(calificacion_producto)
+    calificacion_producto = Calificacion_producto.query.get(id_calificacion)
+    calificacion_producto.id_producto = put_calificacion_producto['id_producto']
+    calificacion_producto.id_cliente = put_calificacion_producto['id_cliente']
+    calificacion_producto.puntuacion = put_calificacion_producto['puntuacion']
+    calificacion_producto.comentario = put_calificacion_producto['comentario']
     db.session.commit()
     return calificacion_producto
 
