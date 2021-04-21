@@ -11,7 +11,7 @@ _modalidad_entrega = Modalidad_entregaDTO.modalidad_entrega
 @api.route('/')
 class Modalidad_entregaList(Resource):
     @api.doc('list_of_registered_modalidad_entregas')
-    @api.marshal_list_with(_modalidad_entrega, envelope='data')
+    @api.marshal_list_with(_modalidad_entrega)
     def get(self):
         """List all registered modalidad_entregas"""
         return get_modalidad_entrega()
