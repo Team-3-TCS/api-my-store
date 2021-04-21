@@ -11,6 +11,16 @@ from app.main.model import calificacion_producto
 from app.main.model import categoria
 from app.main.model import compra
 from app.main.model import detalle_compra
+from app.main.model import detalle_delivery_compra
+from app.main.model import estado
+from app.main.model import modalidad_entrega
+from app.main.model import persona
+from app.main.model import producto
+from app.main.model import rol
+from app.main.model import usuario
+from app.main.model import vendedor
+
+
 
 app = create_app(os.getenv('MYSTORE_ENV') or 'dev')
 app.register_blueprint(blueprint)
