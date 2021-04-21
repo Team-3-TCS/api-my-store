@@ -1,6 +1,6 @@
 import os
 
-mysql_local_base = os.environ['DATABASE_URL'] = 'mysql://root:@localhost:3306/dbMyStore'
+mysql_local_base = os.environ['DATABASE_URL'] = 'mysql://mystorebd:Server123_@68.183.23.64:3306/dbprueba'
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
