@@ -11,7 +11,7 @@ _calificacion_producto = Calificacion_productoDTO.calificacion_producto
 @api.route('/')
 class Calificacion_productoList(Resource):
     @api.doc('list_of_registered_calificacion_productos')
-    @api.marshal_list_with(_calificacion_producto, envelope='data')
+    @api.marshal_list_with(_calificacion_producto)
     def get(self):
         """List all registered calificacion_productos"""
         return get_calificacion_productos()

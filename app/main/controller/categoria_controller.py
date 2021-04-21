@@ -11,7 +11,7 @@ _categoria = CategoriaDTO.categoria
 @api.route('/')
 class CategoriaList(Resource):
     @api.doc('list_of_registered_categorias')
-    @api.marshal_list_with(_categoria, envelope='data')
+    @api.marshal_list_with(_categoria)
     def get(self):
         """List all registered categorias"""
         return get_categorias()

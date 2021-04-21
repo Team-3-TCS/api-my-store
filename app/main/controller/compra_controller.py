@@ -11,7 +11,7 @@ _compra = CompraDTO.compra
 @api.route('/')
 class CompraList(Resource):
     @api.doc('list_of_registered_compras')
-    @api.marshal_list_with(_compra, envelope='data')
+    @api.marshal_list_with(_compra)
     def get(self):
         """List all registered compras"""
         return get_compras()
