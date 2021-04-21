@@ -10,7 +10,7 @@ modalidades_entregas_schema=Modalidad_entregaSchema(many=True)
 
 def create_modalidad_entrega(data):
     new_modalidad_entrega = Modalidad_entrega(
-            Modalidad_Entrega=data['Modalidad_Entrega'],
+            id_modalidad_entrega=data['id_modalidad_entrega'],
             nombre=data['nombre'],
             descripcion=data['descripcion']
         )
