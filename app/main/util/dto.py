@@ -144,6 +144,7 @@ class UsuarioDTO:
         'id_usuario': fields.Integer(required=False, description='id de usuario'),
         'rol': fields.Integer(required=True, description='rol'),
         'contrasenia': fields.String(required=True, description='contrasenia'),
+        'imagen': fields.String(required=False, description='imagen'),
         'nombre_usuario': fields.String(required=True, description='nombre de usuario'),
         'id_estado_actividad': fields.Integer(required=True, description='id del estado de la actividad'),
     })
