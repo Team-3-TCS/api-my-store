@@ -8,7 +8,7 @@ class Rol(db.Model):
     id_rol = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(50))
     descripcion = db.Column(db.String(200))
-    usuario = db.relationship('Usuario', backref='rol', lazy=True)
+    usuario = db.relationship('Usuario', backref='rol_usuario', lazy=True)
 
 
 def __repr__(self):

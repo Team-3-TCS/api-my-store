@@ -7,7 +7,7 @@ class Usuario(db.Model):
     contrasenia=db.Column(db.String(50))
     nombre_usuario=db.Column(db.String(50))
     id_estado_actividad=db.Column(db.Integer)
-    persona = db.relationship('Persona', backref='usuario', lazy=True)
+    persona = db.relationship('Persona', backref='usuario_persona', lazy=True)
     
 def __repr__(self):
     return "<Usuario '{}'>".format(self.id_usuario)
