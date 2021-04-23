@@ -43,7 +43,6 @@ class CompraDTO:
         'id_Estado_pago': fields.Integer(required=True, description='id del estado del pago'),
         'id_modalidad_entrega': fields.Integer(required=True, description='id de l amodalidad de la entrega'),
         'descuento': fields.Float(required=True, description='descuento en la compra'),
-        'id_estado': fields.Integer(required=True, description='id del estado ??'),
     })
 
 
@@ -58,6 +57,7 @@ class Detalle_compraDTO:
         'precio': fields.Float(required=True, description='precio de la compra'),
         'descuento': fields.Float(required=True, description='descuento de la compra'),
     })
+
 
 class Detalle_delivery_compraDTO:
     api = Namespace(
@@ -82,6 +82,7 @@ class EstadoDTO:
         'NOMBRE': fields.String(required=True, description='nombre'),
         'DESCRIPCION': fields.String(required=True, description='descripcion'),
     })
+
 
 class Modalidad_entregaDTO:
     api = Namespace(
@@ -146,6 +147,7 @@ class UsuarioDTO:
         'nombre_usuario': fields.String(required=True, description='nombre de usuario'),
         'id_estado_actividad': fields.Integer(required=True, description='id del estado de la actividad'),
     })
+
 
 class VendedorDTO:
     api = Namespace(

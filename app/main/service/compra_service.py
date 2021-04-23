@@ -11,7 +11,6 @@ def create_compra(data):
         id_Estado_pago=data['id_Estado_pago'],
         id_modalidad_entrega=data['id_modalidad_entrega'],
         descuento=data['descuento'],
-        id_estado=data['id_estado'],
     )
     save_changes(new_compra)
     response_object = {
@@ -38,7 +37,6 @@ def update_compra(id_compra, put_compra):
     compra.id_Estado_pago = put_compra['id_Estado_pago']
     compra.id_modalidad_entrega = put_compra['id_modalidad_entrega']
     compra.descuento = put_compra['descuento']
-    compra.id_estado = put_compra['id_estado']
     db.session.commit()
     return compra
 
