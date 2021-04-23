@@ -16,9 +16,9 @@ class Producto(db.Model):
     fecha_adicion = db.Column(db.DateTime)
     fecha_modificacion = db.Column(db.DateTime)
     detalle_compra = db.relationship(
-        'Detalle_compra', backref='producto', lazy=True)
+        'Detalle_compra', backref='producto_detalle', lazy=True)
     calificacion_producto = db.relationship(
-        'Calificacion_producto', backref='producto', lazy=True)
+        'Calificacion_producto', backref='producto_calificacion', lazy=True)
 
 
 def __repr__(self):

@@ -16,9 +16,9 @@ class Compra(db.Model):
         'modalidad_entrega.id_modalidad_entrega'), nullable=False)
     descuento = db.Column(db.Float)
     detalle_compra = db.relationship(
-        'Detalle_compra', backref='compra', lazy=True)
+        'Detalle_compra', backref='compra_detalle', lazy=True)
     detalle_delivery_compra = db.relationship(
-        'Detalle_delivery_compra', backref='compra', lazy=True)
+        'Detalle_delivery_compra', backref='compra_delivery', lazy=True)
 
 
 def __repr__(self):
