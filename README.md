@@ -1,5 +1,5 @@
 <p align="center">
-<h2 align="center">MyStore Api</h2>
+<h2 align="center">MyStore Api - Taller de Construcción de Sistemas</h2>
 <br>
 </p>
 
